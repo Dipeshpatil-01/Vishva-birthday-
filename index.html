@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vishva's Birthday 🎉</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      margin-top: 40px;
+      font-size: 45px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .btn {
+      padding: 12px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 25px;
+      background: #ff4081;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      background: #e91e63;
+    }
+
+    img {
+      width: 250px;
+      border-radius: 20px;
+      margin-top: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+
+    .hidden {
+      display: none;
+      font-size: 20px;
+      margin-top: 20px;
+    }
+
+    .gallery img {
+      width: 200px;
+      margin: 10px;
+      animation: float 3s infinite;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes float {
+      0% {transform: translateY(0);}
+      50% {transform: translateY(-10px);}
+      100% {transform: translateY(0);}
+    }
+
+    .countdown {
+      font-size: 22px;
+      margin-top: 20px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<h1>🎉 Happy Birthday Vishva 🎂</h1>
+
+<p>My Bestie = Unlimited Fun + Memories 💙</p>
+
+<img src="vishva.jpg">
+
+<br>
+
+<button class="btn" onclick="showMessage()">Open Message 💌</button>
+<button class="btn" onclick="playMusic()">Play Song 🎵</button>
+
+<div id="message" class="hidden">
+  You are not just my best friend...  
+  You are my brother from another mother 😄🔥  
+  Life is 100x better with you Vishva 💙  
+</div>
+
+<br>
+
+<button class="btn" onclick="showGallery()">Memories 📸</button>
+
+<div id="gallery" class="gallery hidden">
+  <img src="pic1.jpg">
+  <img src="pic2.jpg">
+  <img src="pic3.jpg">
+</div>
+
+<div class="countdown" id="countdown"></div>
+
+<audio id="music" src="song.mp3"></audio>
+
+<script>
+
+function showMessage() {
+  document.getElementById("message").style.display = "block";
+}
+
+function showGallery() {
+  document.getElementById("gallery").style.display = "block";
+}
+
+function playMusic() {
+  document.getElementById("music").play();
+}
+
+// Countdown Timer
+var countDate = new Date().getTime() + 10000;
+
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var gap = countDate - now;
+
+  var seconds = Math.floor((gap % (1000 * 60)) / 1000);
+
+  document.getElementById("countdown").innerHTML =
+  "Surprise unlocking in: " + seconds + "s";
+
+  if (gap < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "🎉 Enjoy your day Bestie!";
+  }
+}, 1000);
+
+</script>
+
+</body>
+</html>
