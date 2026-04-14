@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Happy Birthday Vishva 🎉</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(to right, #74ebd5, #acb6e5);
+      color: #333;
+    }
+
+    .container {
+      padding: 30px;
+    }
+
+    h1 {
+      font-size: 40px;
+      color: #ff4081;
+    }
+
+    img {
+      width: 250px;
+      border-radius: 20px;
+      margin-top: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+
+    .message {
+      font-size: 18px;
+      margin: 20px;
+    }
+
+    button {
+      padding: 12px 20px;
+      font-size: 16px;
+      background: #ff4081;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #e91e63;
+    }
+
+    .hidden {
+      display: none;
+      margin-top: 20px;
+      font-size: 20px;
+      color: #222;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎉 Happy Birthday Vishva 🎂</h1>
+
+<img src="vishva.jpg" alt="Bestie Photo">
+
+<p class="message">
+From crazy memories to endless laughs,  
+you’ve been the best bestie ever 😄💙  
+Stay the same awesome person always!
+</p>
+
+<button onclick="showSurprise()">Click for Surprise 🎁</button>
+
+<div id="surprise" class="hidden">
+  💌 You are not just my best friend,  
+  you are my family!  
+  Love you always Vishva 💙🔥
+</div>
+
+<br><br>
+
+<button onclick="playMusic()">Play Music 🎵</button>
+<audio id="music" src="song.mp3"></audio>
+
+</div>
+
+<script>
+function showSurprise() {
+  document.getElementById("surprise").style.display = "block";
+}
+
+function playMusic() {
+  document.getElementById("music").play();
+}
+</script>
+
+</body>
+</html>
