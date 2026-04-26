@@ -1,0 +1,108 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Vishva 🎂</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Google Font -->  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      color: white;
+    }
+
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px white; }
+      to { text-shadow: 0 0 30px yellow; }
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 30px;
+      background: white;
+      color: #ff4d6d;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .message {
+      padding: 50px;
+      text-align: center;
+      font-size: 1.3rem;
+      line-height: 1.8;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 20px;
+      transition: transform 0.4s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 1rem;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+  </style></head>
+<body><canvas id="confetti"></canvas>
+
+<header>
+  <h1>Happy Birthday Vishva 🎉</h1>
+  <p>My Best Friend ❤️</p>
+  <button class="btn" onclick="reveal()">Click for Surprise</button>
+</header><section id="content" class="hidden">
+  <div class="message">
+    Dear Vishva 💖<br><br>
+    You are not just my best friend, you are my happiness, my support, and my favorite person.
+    On your special day, I wish you endless smiles, success, and love.
+    Stay the same amazing person always 🌸✨
+  </div>  <div class="gallery">
+    <img src="image 1.jpg">
+    <img src="image 2.jpg">
+    <img src="image 3.jpg">
+
+  </
