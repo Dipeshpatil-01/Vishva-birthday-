@@ -1,0 +1,180 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vishva Birthday 🎂</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Poppins',sans-serif;
+  overflow-x:hidden;
+  background:linear-gradient(135deg,#ff758c,#ff7eb3);
+  color:white;
+}
+
+header{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+h1{
+  font-size:3rem;
+  animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+  from{text-shadow:0 0 10px white}
+  to{text-shadow:0 0 30px yellow}
+}
+
+.btn{
+  margin-top:20px;
+  padding:12px 25px;
+  border:none;
+  border-radius:30px;
+  background:white;
+  color:#ff4d6d;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.hidden{display:none}
+
+.message{
+  padding:40px;
+  text-align:center;
+  font-size:1.2rem;
+}
+
+/* Typing Effect */
+.typing{
+  border-right:3px solid white;
+  white-space:nowrap;
+  overflow:hidden;
+  width:0;
+  animation:typing 4s steps(40,end) forwards;
+}
+
+@keyframes typing{
+  from{width:0}
+  to{width:100%}
+}
+
+/* Slideshow */
+.slideshow{
+  position:relative;
+  max-width:90%;
+  margin:20px auto;
+}
+
+.slide{
+  display:none;
+}
+
+.slide img{
+  width:100%;
+  border-radius:20px;
+}
+
+/* Hearts */
+.heart{
+  position:fixed;
+  bottom:0;
+  font-size:20px;
+  animation:floatUp 5s linear infinite;
+}
+
+@keyframes floatUp{
+  0%{transform:translateY(0);opacity:1}
+  100%{transform:translateY(-100vh);opacity:0}
+}
+
+canvas{
+  position:fixed;
+  top:0;
+  left:0;
+  pointer-events:none;
+}
+</style></head><body><canvas id="confetti"></canvas>
+
+<header>
+  <h1>Happy Birthday Vishva 🎉</h1>
+  <p>My Best Friend ❤️</p>
+  <button class="btn" onclick="reveal()">Click for Surprise</button>
+</header><section id="content" class="hidden">
+  <div class="message">
+    <p class="typing">Dear Vishva 💖 You are my best friend, my happiness and my favorite person ✨</p>
+  </div>  <!-- Slideshow -->  <div class="slideshow">
+    <div class="slide"><img src="image1.jpg"></div>
+    <div class="slide"><img src="image2.jpg"></div>
+    <div class="slide"><img src="image3.jpg"></div>
+    <div class="slide"><img src="photo4.jpg"></div>
+  </div>
+</section><audio id="music" src="her.mp3" loop></audio>
+
+<script>
+function reveal(){
+  document.getElementById('content').classList.remove('hidden');
+  document.querySelector('header').style.display='none';
+  document.getElementById('music').play();
+  startConfetti();
+  startSlideshow();
+  createHearts();
+}
+
+/* Slideshow */
+let index=0;
+function startSlideshow(){
+  let slides=document.getElementsByClassName('slide');
+  function show(){
+    for(let i=0;i<slides.length;i++) slides[i].style.display='none';
+    index++;
+    if(index>slides.length) index=1;
+    slides[index-1].style.display='block';
+    setTimeout(show,2000);
+  }
+  show();
+}
+
+/* Confetti */
+const canvas=document.getElementById('confetti');
+const ctx=canvas.getContext('2d');
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+let pieces=[];
+for(let i=0;i<120;i++){
+  pieces.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,size:Math.random()*5+2,speed:Math.random()*3+1});
+}
+function startConfetti(){
+  function update(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle='white';
+    pieces.forEach(p=>{
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+      ctx.fill();
+      p.y+=p.speed;
+      if(p.y>canvas.height)p.y=0;
+    });
+    requestAnimationFrame(update);
+  }
+  update();
+}
+
+/* Floating Hearts */
+function createHearts(){
+  setInterval(()=>{
+    let heart=document.createElement('div');
+    heart.className='heart';
+    heart.innerHTML='❤️';
+    heart.style.left=Math.random()*100+'vw';
+    heart.style.fontSize=Math.random()*20+10+'px';
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),5000);
+  },300);
+}
+</script></body>
+</html>
