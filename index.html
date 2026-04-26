@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Vishva!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #ffafbd; /* Pink gradient */
+            background: -webkit-linear-gradient(to right, #ffc3a0, #ffafbd);
+            background: linear-gradient(to right, #ffc3a0, #ffafbd);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 50px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .btn-surprise {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            background-color: white;
+            border: none;
+            border-radius: 50px;
+            color: #ffafbd;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-surprise:hover {
+            transform: scale(1.1);
+        }
+
+        /* Heart Animation */
+        .heart {
+            position: absolute;
+            top: -10%;
+            font-size: 20px;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to { transform: translateY(110vh); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Happy Birthday, <br> <span style="color: #d63384;">Vishva!</span> 🎂</h1>
+        <p style="color: white; font-size: 1.2rem;">To my best friend in the whole world...</p>
+        <button class="btn-surprise" onclick="celebrate()">Click for Surprise</button>
+    </div>
+
+    <script>
+        function celebrate() {
+            // Add your surprise logic here (like redirecting to a gallery)
+            alert("Vishva, you are the best! Check your WhatsApp for the gift!");
+            for(let i=0; i<50; i++) {
+                createHeart();
+            }
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 5000);
+        }
+    </script>
+</body>
+</html>
