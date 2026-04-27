@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vishva's Birthday 🎉</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+    }
+
+    .slide {
+      width: 100%;
+      height: 100vh;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      color: white;
+    }
+
+    .active {
+      display: flex;
+    }
+
+    .slide1 { background: linear-gradient(135deg, #ff758c, #ff7eb3); }
+    .slide2 { background: linear-gradient(135deg, #667eea, #764ba2); }
+    .slide3 { background: linear-gradient(135deg, #43cea2, #185a9d); }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      background: white;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    img {
+      width: 200px;
+      border-radius: 15px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Slide 1 -->
+  <div class="slide slide1 active">
+    <h1>🎉 Happy Birthday Vishva 🎂</h1>
+    <p>you are the best 🫠</p>
+    <button onclick="nextSlide()">Next ➡️</button>
+  </div>
+
+  <!-- Slide 2 -->
+  <div class="slide slide2">
+    <h2>the little one cutie💕</h2>
+    <img src="photo1.jpg">
+    <p>God bless you 😉</p>
+    <button onclick="nextSlide()">Next ➡️</button>
+  </div>
+
+  <!-- Slide 3 -->
+  <div class="slide slide3">
+    <h2>Special Message 💌</h2>
+    <p>Stay happy always 😊💖</p>
+    <button onclick="prevSlide()">⬅️ Back</button>
+  </div>
+
+<script>
+let current = 0;
+let slides = document.querySelectorAll(".slide");
+
+function showSlide(index) {
+  slides.forEach(slide => slide.classList.remove("active"));
+  slides[index].classList.add("active");
+}
+
+function nextSlide() {
+  current++;
+  if (current >= slides.length) current = 0;
+  showSlide(current);
+}
+
+function prevSlide() {
+  current--;
+  if (current < 0) current = slides.length - 1;
+  showSlide(current);
+}
+</script>
+
+</body>
+</html>
